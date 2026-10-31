@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Project Udaan | Support Her Education</title>
+
+<!-- QR Code Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #263445;
+  line-height: 1.6;
+}
+
+header {
+  background: #102d46;
+  color: white;
+  text-align: center;
+  padding: 35px 15px;
+}
+
+header h1 {
+  font-size: 34px;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+header p {
+  margin-bottom: 0;
+}
+
+.container {
+  max-width: 720px;
+  margin: 25px auto;
+  padding: 15px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+}
+
+h2 {
+  color: #102d46;
+}
+
+.goal {
+  font-size: 34px;
+  font-weight: bold;
+  color: #087b55;
+}
+
+.deadline {
+  color: #c24b36;
+  font-weight: bold;
+}
+
+button, .pay-button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+  background: #087b55;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+#qrcode {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  min-height: 10px;
+}
+
+footer {
+  background: #102d46;
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+.small {
+  font-size: 13px;
+  color: #657386;
+}
+
+@media(max-width: 500px) {
+  header h1 {
+    font-size: 27px;
+  }
+  .card {
+    padding: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>PROJECT UDAAN</h1>
+  <p>A Little Help Can Change a Future.</p>
+</header>
+
+<div class="container">
+
+  <section class="card">
+    <h2>Help Her Continue Her Education</h2>
+
+    <p>
+      A third-year Electronics and Communication
+      Engineering student needs your support to
+      complete her college education.
+    </p>
+
+    <p>Our fundraising goal:</p>
+
+    <div class="goal">₹1,30,000</div>
+
+    <p class="deadline">
+      Last date: 10 November 2026
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Her Story</h2>
+
+    <p>
+      I am a third-year engineering student and the
+      eldest sister of two younger siblings. My father
+      passed away when I was in 12th grade, and my
+      mother is currently facing a severe medical crisis.
+    </p>
+
+    <p>
+      Due to her health issues, she has had to stop
+      working, leaving our family without a stable source
+      of income. Medical expenses have exhausted our
+      family's financial resources.
+    </p>
+
+    <p>
+      I am currently working part-time to manage our
+      food and basic daily expenses. Despite my efforts,
+      I cannot manage my college tuition fees.
+    </p>
+
+    <p>
+      I urgently need your support to continue my
+      education and avoid dropping out of college.
+      My dream is to complete my engineering degree,
+      support my family and provide my younger
+      siblings with a better future.
+    </p>
+
+    <p>
+      Any contribution, however small, would mean a lot.
+      Even sharing my story can make a difference.
+    </p>
+
+    <p><b>Thank you for standing with my family.</b></p>
+  </section>
+
+  <section class="card">
+    <h2>Scan & Donate</h2>
+
+    <p>
+      Choose an amount and scan the QR code using
+      any supported UPI payment app.
+    </p>
+
+    <label for="amount">Donation amount (₹)</label>
+    <input
+      type="number"
+      id="amount"
+      min="1"
+      max="130000"
+      placeholder="Enter your donation amount"
+    >
+
+    <div id="qrcode"></div>
+
+    <p id="qrMessage" class="small">
+      Payment QR will appear after the UPI setup.
+    </p>
+
+    <a id="payButton" class="pay-button"
+       href="#" style="display:none">
+       Pay Using UPI
+    </a>
+
+    <p class="small">
+      Please verify the recipient's name and amount
+      in your UPI app before confirming payment.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Transparency & Contact</h2>
+
+    <p>
+      College fee documents can be provided to donors
+      for verification, with personal information protected.
+    </p>
+
+    <p>
+      College: Peri Institute of Technology
+    </p>
+
+    <p>
+      Course: BE Electronics and Communication
+      Engineering – Third Year
+    </p>
+
+    <p>
+      Contact: 8754574790
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  <h3>PROJECT UDAAN</h3>
+  <p>Your kindness can keep a dream alive.</p>
+  <p>Thank you for your support ❤️</p>
+</footer>
+
+<script>
+
+// =================================
+// ADD YOUR PAYMENT DETAILS HERE
+// =================================
+
+const UPI_ID = "avilaviji06@okicici";
+const PAYEE_NAME = "AVILA";
+
+// =================================
+// QR CODE GENERATION
+// =================================
+
+const amountInput = document.getElementById("amount");
+const qrBox = document.getElementById("qrcode");
+const qrMessage = document.getElementById("qrMessage");
+const payButton = document.getElementById("payButton");
+
+function generateQR() {
+
+  qrBox.innerHTML = "";
+  payButton.style.display = "none";
+
+  if (UPI_ID === "YOUR_UPI_ID_HERE" ||
+      !UPI_ID.includes("@")) {
+    qrMessage.textContent =
+      "UPI details are not configured yet.";
+    return;
+  }
+
+  const amount = Number(amountInput.value);
+
+  if (amountInput.value &&
+      (!Number.isFinite(amount) ||
+       amount <= 0 || amount > 130000)) {
+    qrMessage.textContent =
+      "Please enter a valid donation amount.";
+    return;
+  }
+
+  const upiLink =
+    "upi://pay?pa=" + encodeURIComponent(UPI_ID) +
+    "&pn=" + encodeURIComponent(PAYEE_NAME) +
+    "&tn=" + encodeURIComponent("Project Udaan Education Support") +
+    "&cu=INR" +
+    (amount > 0 ? "&am=" + amount.toFixed(2) : "");
+
+  if (typeof QRCode === "undefined") {
+    qrMessage.textContent =
+      "QR library could not load. Please check internet.";
+    return;
+  }
+
+  new QRCode(qrBox, {
+    text: upiLink,
+    width: 210,
+    height: 210
+  });
+
+  qrMessage.textContent =
+    "Scan this QR code and verify payment details.";
+
+  payButton.href = upiLink;
+  payButton.style.display = "block";
+}
+
+amountInput.addEventListener("input", generateQR);
+
+// Initial setup
+generateQR();
+
+</script>
+
+</body>
+</html>
